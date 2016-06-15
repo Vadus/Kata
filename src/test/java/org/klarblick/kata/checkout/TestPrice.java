@@ -2,6 +2,7 @@ package org.klarblick.kata.checkout;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
@@ -13,7 +14,8 @@ public class TestPrice {
 	
 	@Before
 	public void init(){
-		
+		rules = new ArrayList<>();
+		rules.add(new PricingRule());
 	}
 
 	@Test
