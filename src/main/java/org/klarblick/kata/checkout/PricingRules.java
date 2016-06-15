@@ -5,41 +5,14 @@ import java.util.Map;
 
 public class PricingRules {
 
-	private Map<String, Integer> prices = new HashMap<>();
+	private Map<String, PricingRule> prices = new HashMap<>();
 	
-	private SpecialPrice specialPrice;
-	
-	public PricingRules add(String item, int price){
-		prices.put(item, price);
+	public PricingRules add(PricingRule rule){
+		prices.put(rule.getItem(), rule);
 		return this;
 	}
 	
-	public PricingRules withSpecialAmount(int amount){
-		createSpecialPrice();
-		specialPrice.setAmount(amount);
-		return this;
-	}
-
-	public PricingRules forTotal(int total){
-		createSpecialPrice();
-		specialPrice.setTotalPrice(total);
-		return this;
-	}
-	
-	private void createSpecialPrice() {
-		if(specialPrice == null){
-			specialPrice = new SpecialPrice();
-		}
-	}
-
-	public SpecialPrice getSpecialPrice() {
-		return specialPrice;
-	}
-	public void setSpecialPrice(SpecialPrice specialPrice) {
-		this.specialPrice = specialPrice;
-	}
-	
-	public int getPrice(String item){
-		return prices.get(item);
+	public int getPrice(String item, int amount){
+		return prices.get(item).calculatePrice(amount);
 	}
 }

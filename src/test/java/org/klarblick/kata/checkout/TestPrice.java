@@ -12,10 +12,10 @@ public class TestPrice {
 	@Before
 	public void init(){
 		rules = new PricingRules();
-		rules.add("A", 40).withSpecialAmount(3).forTotal(100);
-		rules.add("B", 50).withSpecialAmount(2).forTotal(80);
-		rules.add("C", 25);
-		rules.add("D", 20);
+		rules.add(new PricingRule("A", 40).withSpecialAmount(3).forTotal(100));
+		rules.add(new PricingRule("B", 50).withSpecialAmount(2).forTotal(80));
+		rules.add(new PricingRule("C", 25));
+		rules.add(new PricingRule("D", 20));
 	}
 
 	@Test
