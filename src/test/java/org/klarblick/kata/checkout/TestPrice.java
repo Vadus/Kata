@@ -1,21 +1,21 @@
 package org.klarblick.kata.checkout;
 
-import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
 public class TestPrice {
 	
-	private List<PricingRule> rules;
+	private PricingRules rules;
 	
 	@Before
 	public void init(){
-		rules = new ArrayList<>();
-		rules.add(new PricingRule());
+		rules = new PricingRules();
+		rules.add("A", 40).withSpecialAmount(3).forTotal(100);
+		rules.add("B", 50).withSpecialAmount(2).forTotal(80);
+		rules.add("C", 25);
+		rules.add("D", 20);
 	}
 
 	@Test
@@ -78,6 +78,10 @@ public class TestPrice {
 	
 		CheckOut co = new CheckOut(rules);
 	
+//		goods.chars()
+//			.mapToObj(c -> (char)c)
+//			.forEach(c -> co.scan(String.valueOf(c)));
+		
 		for (int i = 0; i < goods.length(); i++) {
 	
 			co.scan(String.valueOf(goods.charAt(i)));

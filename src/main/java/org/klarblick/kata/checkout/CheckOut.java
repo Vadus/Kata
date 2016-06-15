@@ -1,17 +1,21 @@
 package org.klarblick.kata.checkout;
 
-import java.util.List;
-
 public class CheckOut {
 
-	public CheckOut(List<PricingRule> pricingRules) {
+	private PricingRules pricingRules;
+	private int total;
+	
+	
+	public CheckOut(PricingRules pricingRules) {
+		this.pricingRules = pricingRules;
 	}
 	
 	public void scan(String sku){
 		
+		total+= pricingRules.getPrice(sku);
 	}
 	
 	public int total(){
-		return -1;
+		return total;
 	}
 }
