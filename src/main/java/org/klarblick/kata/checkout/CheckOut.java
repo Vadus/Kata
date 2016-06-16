@@ -3,6 +3,8 @@ package org.klarblick.kata.checkout;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.klarblick.kata.checkout.rules.PricingRules;
+
 public class CheckOut {
 
 	private PricingRules pricingRules;

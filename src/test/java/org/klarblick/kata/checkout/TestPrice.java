@@ -4,6 +4,9 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.klarblick.kata.checkout.rules.DefaultPrice;
+import org.klarblick.kata.checkout.rules.PricingRules;
+import org.klarblick.kata.checkout.rules.specials.SomeForLessPrice;
 
 public class TestPrice {
 	
@@ -12,10 +15,10 @@ public class TestPrice {
 	@Before
 	public void init(){
 		rules = new PricingRules();
-		rules.add(new PricingRule("A", 40).withSpecialAmount(3).forTotal(100));
-		rules.add(new PricingRule("B", 50).withSpecialAmount(2).forTotal(80));
-		rules.add(new PricingRule("C", 25));
-		rules.add(new PricingRule("D", 20));
+		rules.add(new DefaultPrice("A", 40).withSpecial(new SomeForLessPrice()).amount(3).forTotal(100));
+		rules.add(new DefaultPrice("B", 50).withSpecial(new SomeForLessPrice()).amount(2).forTotal(80));
+		rules.add(new DefaultPrice("C", 25));
+		rules.add(new DefaultPrice("D", 20));
 	}
 
 	@Test

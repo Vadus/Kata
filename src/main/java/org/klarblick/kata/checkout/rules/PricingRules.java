@@ -1,4 +1,4 @@
-package org.klarblick.kata.checkout;
+package org.klarblick.kata.checkout.rules;
 
 import java.util.HashMap;
 import java.util.Map;

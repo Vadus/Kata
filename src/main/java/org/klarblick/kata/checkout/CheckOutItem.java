@@ -1,5 +1,7 @@
 package org.klarblick.kata.checkout;
 
+import org.klarblick.kata.checkout.rules.PricingRule;
+
 public class CheckOutItem {
 
 	private String item;
