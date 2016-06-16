@@ -13,6 +13,10 @@ public class PricingRules {
 	}
 	
 	public int getPrice(String item, int amount){
-		return prices.get(item).calculatePrice(amount);
+		return getPricingRule(item).calculatePrice(amount);
+	}
+	
+	public PricingRule getPricingRule(String item){
+		return prices.get(item);
 	}
 }

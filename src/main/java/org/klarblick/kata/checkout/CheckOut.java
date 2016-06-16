@@ -1,17 +1,12 @@
 package org.klarblick.kata.checkout;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-
-import javax.xml.ws.Holder;
 
 public class CheckOut {
 
 	private PricingRules pricingRules;
-	private List<String> items = new ArrayList<>();
+	private Map<String, CheckOutItem> items = new HashMap<>();
 	
 	
 	public CheckOut(PricingRules pricingRules) {
@@ -20,20 +15,21 @@ public class CheckOut {
 	
 	public void scan(String item){
 		
-		items.add(item);
+		CheckOutItem coItem = items.get(item);
+		if(coItem == null){
+			coItem = new CheckOutItem(item, 0, pricingRules.getPricingRule(item));
+			items.put(item, coItem);
+		}
+		coItem.increaseAmount();
 	}
 	
 	public int total(){
 		
-		final Holder<Integer> total = new Holder<>(0);
+		int total = items.values()
+				.parallelStream()
+				.mapToInt(CheckOutItem::calculatePrice)
+				.sum();
 		
-		Map<String, Long> counted = items.stream()
-	            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-		
-		counted.forEach((item, count) -> {
-			total.value += pricingRules.getPrice(item, count.intValue());
-		});
-		
-		return total.value;
+		return total;
 	}
 }
