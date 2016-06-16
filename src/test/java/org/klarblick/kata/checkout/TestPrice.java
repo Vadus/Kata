@@ -80,10 +80,6 @@ public class TestPrice {
 	private int calculatePrice(String goods) {
 	
 		CheckOut co = new CheckOut(rules);
-	
-//		goods.chars()
-//			.mapToObj(c -> (char)c)
-//			.forEach(c -> co.scan(String.valueOf(c)));
 		
 		for (int i = 0; i < goods.length(); i++) {
 	
