@@ -5,6 +5,12 @@ import java.util.Map;
 
 import org.klarblick.kata.checkout.rules.PricingRules;
 
+/**
+ * Scans all items and calculates the overall price
+ * 
+ * @author dtramnitzke
+ *
+ */
 public class CheckOut {
 
 	private PricingRules pricingRules;

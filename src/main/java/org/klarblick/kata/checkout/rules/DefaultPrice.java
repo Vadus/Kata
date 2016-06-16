@@ -1,5 +1,11 @@
 package org.klarblick.kata.checkout.rules;
 
+/**
+ * Default price is a price for 1 piece of an item
+ * 
+ * @author dtramnitzke
+ *
+ */
 public class DefaultPrice implements PricingRule{
 
 	private String item;

@@ -3,6 +3,12 @@ package org.klarblick.kata.checkout.rules;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Container for {@link PricingRule}s
+ * 
+ * @author dtramnitzke
+ *
+ */
 public class PricingRules {
 
 	private Map<String, PricingRule> prices = new HashMap<>();

@@ -2,6 +2,12 @@ package org.klarblick.kata.checkout;
 
 import org.klarblick.kata.checkout.rules.PricingRule;
 
+/**
+ * Item to be scanned and checked out
+ * 
+ * @author dtramnitzke
+ *
+ */
 public class CheckOutItem {
 
 	private String item;

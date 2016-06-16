@@ -2,6 +2,12 @@ package org.klarblick.kata.checkout.rules.specials;
 
 import org.klarblick.kata.checkout.rules.DefaultPrice;
 
+/**
+ * Special pricing rule, e.g.: 2 piece of cake for half the price
+ * 
+ * @author dtramnitzke
+ *
+ */
 public class SomeForLessPrice extends DefaultPrice {
 
 	private SpecialPrice specialPrice;
